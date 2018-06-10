@@ -1,0 +1,32 @@
+{
+  "name": "ett-landing-page",
+  "version": "1.0.0",
+  "description": "Landing page for MØDI's album \"Ett\"",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herrherrmann/ett-landing-page.git"
+  },
+  "author": "Sebastian Herrmann",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/herrherrmann/ett-landing-page/issues"
+  },
+  "homepage": "https://github.com/herrherrmann/ett-landing-page#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-cleancss": "^0.2.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^3.5.0",
+    "gulp-load": "^0.1.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "run-sequence": "^2.2.1"
+  }
+}
