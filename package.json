@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Landing page for MØDI's album \"Ett\"",
   "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/herrherrmann/ett-landing-page.git"
