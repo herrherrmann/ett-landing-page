@@ -2,9 +2,12 @@
 .container {
 	width: 100%;
 	max-width: @container-width + (@padding-normal * 2);
-	margin: 2vh auto;
 	@media screen and (max-width: @breakpoint-desktop) {
-		padding: @padding-normal;
+		padding: 0 @padding-normal;
+		margin: @padding-normal auto;
+	}
+	@media screen and (min-width: @breakpoint-desktop) {
+		margin: 5vh auto;
 	}
 }
 
@@ -28,15 +31,20 @@
 	display: flex;
 	flex-wrap: wrap;
 	.link {
-		flex: (@container-width / 2) - (@padding-normal * 2);
-		padding: @padding-small @padding-normal;
+		flex: (@container-width / 2) - (@padding-normal);
 		margin: 0 @padding-normal @padding-normal 0;
 		background-color: @accent-color;
-        border-radius: @border-radius-size;
-        text-align: center;
+		border-radius: @border-radius-size;
+		text-align: center;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		@media screen and (max-width: @breakpoint-desktop) {
+			padding: @padding-normal;
+		}
+		@media screen and (min-width: @breakpoint-desktop) {
+			padding: @padding-small @padding-normal;
+		}
 		&,
 		&:visited,
 		&:active {
@@ -48,49 +56,57 @@
 		}
 		&.spotify {
 			background-color: #1db954;
-			&:hover, &:focus {
+			&:hover,
+			&:focus {
 				background-color: darken(#1db954, 10%);
 			}
 		}
 		&.i-tunes {
 			background-color: #db48d8;
-			&:hover, &:focus {
+			&:hover,
+			&:focus {
 				background-color: darken(#db48d8, 10%);
 			}
 		}
 		&.apple-music {
 			background-color: #4aa3f9;
-			&:hover, &:focus {
+			&:hover,
+			&:focus {
 				background-color: darken(#4aa3f9, 10%);
 			}
 		}
 		&.bandcamp {
 			background-color: #629aa9;
-			&:hover, &:focus {
+			&:hover,
+			&:focus {
 				background-color: darken(#629aa9, 10%);
 			}
 		}
 		&.sound-cloud {
 			background-color: #ff8800;
-			&:hover, &:focus {
+			&:hover,
+			&:focus {
 				background-color: darken(#ff8800, 5%);
 			}
 		}
 		&.google-play-music {
 			background-color: #f55a34;
-			&:hover, &:focus {
+			&:hover,
+			&:focus {
 				background-color: darken(#f55a34, 10%);
 			}
 		}
 		&.deezer {
 			background-color: #ff0092;
-			&:hover, &:focus {
+			&:hover,
+			&:focus {
 				background-color: darken(#ff0092, 10%);
 			}
 		}
 		&.tidal {
 			background-color: #555555;
-			&:hover, &:focus {
+			&:hover,
+			&:focus {
 				background-color: darken(#555555, 10%);
 			}
 		}
