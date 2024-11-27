@@ -1,5 +1,5 @@
-# Ett Landing Page
-Landing page for MØDI's first album "Ett"
+# re:float Landing Page
+Landing page for MØDI's second album "re:float"
 
 # Development
 ```shell

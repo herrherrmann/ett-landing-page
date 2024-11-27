@@ -1,35 +1,50 @@
 'use strict';
-const browserSync = require('browser-sync').create();
-const del = require('del');
-const gulp = require('gulp');
-const plugins = require('gulp-load-plugins')();
-const runSequence = require('run-sequence');
+import browserSync from 'browser-sync';
+import gulp from 'gulp';
+import { deleteSync } from 'del';
+import sourcemaps from 'gulp-sourcemaps';
+import less from 'gulp-less';
+import autoprefixer from 'gulp-autoprefixer';
+import concat from 'gulp-concat';
+import cleanCss from 'gulp-clean-css';
 
-gulp.task('clean', () => del(['./styles.css', './styles.css.map']));
+const browserSyncInstance = browserSync.create();
 
-gulp.task('styles', [], () =>
-	gulp
-		.src('./less/styles.less')
-		.pipe(plugins.sourcemaps.init())
-		.pipe(plugins.less())
-		.pipe(
-			plugins.autoprefixer({
-				browsers: ['last 3 versions'],
-			}),
-		)
-		.pipe(plugins.concat('styles.css'))
-		.pipe(plugins.cleancss())
-		.pipe(plugins.sourcemaps.write('.'))
-		.pipe(gulp.dest('./')),
-);
+function clean() {
+    return new Promise((resolve) => {
+        deleteSync(['./styles.css', './styles.css.map']);
+        resolve();
+    });
+}
 
-gulp.task('watch-styles', () => gulp.watch('./less/**/*.less', 'styles'));
+function styles() {
+    return gulp
+        .src('./less/styles.less')
+        .pipe(sourcemaps.init())
+        .pipe(less())
+        .pipe(
+            autoprefixer({
+                overrideBrowserslist: ['last 3 versions'],
+            }),
+        )
+        .pipe(concat('styles.css'))
+        .pipe(cleanCss())
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('./'));
+}
 
-gulp.task('watch', () => runSequence(['clean'], 'styles', ['watch-styles']));
+function serve() {
+    browserSyncInstance.init({
+        server: {
+            baseDir: './',
+        },
+    });
 
-gulp.task('_browser-reload', cb => {
-	browserSync.reload();
-	cb();
-});
+    gulp.watch('./less/**/*.less', styles);
+    gulp.watch('./*.html').on('change', browserSyncInstance.reload);
+}
 
-gulp.task('default', cb => runSequence(['clean'], 'styles', cb));
+const watch = gulp.series(clean, styles, serve);
+const defaultTask = gulp.series(clean, styles);
+
+export { clean, styles, watch, defaultTask as default };

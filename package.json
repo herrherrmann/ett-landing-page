@@ -1,7 +1,7 @@
 {
   "name": "ett-landing-page",
   "version": "1.0.0",
-  "description": "Landing page for MØDI's album \"Ett\"",
+  "description": "Landing page for MØDI's album \"re-float\"",
   "main": "index.html",
   "repository": {
     "type": "git",
@@ -14,16 +14,15 @@
   },
   "homepage": "https://github.com/herrherrmann/ett-landing-page#readme",
   "devDependencies": {
-    "browser-sync": "^2.24.4",
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-cleancss": "^0.2.2",
+    "browser-sync": "^3.0.3",
+    "del": "^8.0.0",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
-    "gulp-less": "^3.5.0",
-    "gulp-load": "^0.1.1",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-sourcemaps": "^2.6.4",
+    "gulp-less": "^5.0.0",
+    "gulp-load-plugins": "^2.0.8",
+    "gulp-sourcemaps": "^3.0.0",
     "run-sequence": "^2.2.1"
   }
 }
